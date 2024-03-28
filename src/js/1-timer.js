@@ -43,27 +43,27 @@ const options = {
     return;
   },
 };
-startBtn.disabled = true;
-const timer = {
-  startTimer() {
-    const timerId = setInterval(() => {
-      const currentTime = Date.now();
-      const deltaTime = userSelectedDate - currentTime;
-      if (deltaTime <= 0) {
-        clearInterval(timerId);
-        input.disabled = false;
-        startBtn.disabled = false;
-        return;
-      }
-      const { days, hours, minutes, seconds } = convertMs(deltaTime);
-      updateTimerInterface({ days, hours, minutes, seconds });
-      input.disabled = true;
-      startBtn.disabled = true;
-    }, 1000);
-  },
-};
 
-startBtn.addEventListener('click', timer.startTimer);
+startBtn.disabled = true;
+
+startBtn.addEventListener('click', startTimer);
+
+function startTimer() {
+  const timerId = setInterval(() => {
+    const currentTime = Date.now();
+    const deltaTime = userSelectedDate - currentTime;
+    if (deltaTime <= 0) {
+      clearInterval(timerId);
+      input.disabled = false;
+      startBtn.disabled = false;
+      return;
+    }
+    const { days, hours, minutes, seconds } = convertMs(deltaTime);
+    updateTimerInterface({ days, hours, minutes, seconds });
+    input.disabled = true;
+    startBtn.disabled = true;
+  }, 1000);
+}
 
 function convertMs(ms) {
   const second = 1000;
@@ -91,4 +91,5 @@ function updateTimerInterface({ days, hours, minutes, seconds }) {
   timerMinutes.textContent = `${minutes}`;
   timerSeconds.textContent = `${seconds}`;
 }
+
 const fp = flatpickr(input, options);
