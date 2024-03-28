@@ -1,3 +1,8 @@
+body {
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
+}
+
 a {
     display: flex;
     gap: 20px;
@@ -6,20 +11,77 @@ a {
 }
 
 input {
+    box-sizing: border-box;
+    width: 360px;
+    height: 40px;
+    padding: 0;
     margin: 20px;
 
+    border-radius: 8px;
+    outline: none;
+    border: 2px solid #27292b;
+
+    ;
+
+    font-size: 24px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input:disabled {
+    color: gray;
+    border-color: gray;
+}
+
+input:disabled:hover {
+    box-shadow: none;
+}
+
+input:hover {
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+button {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    width: 120px;
+    height: 40px;
+    border-radius: 4px;
+    outline: none;
+    border: none;
+    background-color: #395ebf;
+    font-family: "Montserrat", sans-serif;
+    letter-spacing: 0.06em;
+    color: white;
+    font-size: 24px;
+}
+
+button:disabled {
+    background-color: lightgray;
+}
+
+button:disabled:hover {
+    background-color: lightgray;
+}
+
+button:hover {
+    background-color: #191970;
 }
 
 .timer {
     display: flex;
     gap: 20px;
-    margin-left: 20px;
+    justify-content: center;
 }
 
 .field {
     display: flex;
     flex-direction: column;
     align-items: center;
+
 }
 
 .value {
@@ -28,5 +90,6 @@ input {
 }
 
 .label {
-    font-size: 16px;
+    font-size: 18px;
+
 }
