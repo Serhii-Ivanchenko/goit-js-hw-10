@@ -1,3 +1,6 @@
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
+
 const input = document.querySelector('input[name=delay]');
 const submitBtn = document.querySelector('button');
 const form = document.querySelector('.form');
@@ -61,6 +64,3 @@ function submitHandle(event) {
     });
   form.reset();
 }
-
-import iziToast from 'izitoast';
-import 'izitoast/dist/css/iziToast.min.css';
