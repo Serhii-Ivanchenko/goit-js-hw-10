@@ -5,23 +5,19 @@ const input = document.querySelector('input[name=delay]');
 const submitBtn = document.querySelector('button');
 const form = document.querySelector('.form');
 
+let delay = '';
+
 form.addEventListener('submit', submitHandle);
 input.addEventListener('input', inputHandle);
 
 function inputHandle(event) {
-  const inputData = event.target.value;
-  localStorage.setItem('delay', inputData);
+  delay = event.target.value;
 }
 
 function submitHandle(event) {
   event.preventDefault();
 
-  const delay = localStorage.getItem('delay');
-  const choice = localStorage.setItem(
-    'state',
-    event.target.elements.state.value
-  );
-  const state = localStorage.getItem('state');
+  const choice = event.target.elements.state.value;
 
   const iziSuccessOptions = {
     title: '✅',
@@ -47,7 +43,7 @@ function submitHandle(event) {
 
   const promise = new Promise((resolve, reject) => {
     setTimeout(() => {
-      if (state === 'fulfilled') {
+      if (choice === 'fulfilled') {
         resolve(iziToast.show(iziSuccessOptions));
       } else {
         reject(iziToast.show(iziRejectOptions));
